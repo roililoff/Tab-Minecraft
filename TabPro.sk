@@ -1,0 +1,22 @@
+command /prefix <player> <text>:
+	trigger:
+		send "&4TabPro: &d Prefix add" to player
+		if arg 1 is not set:
+			send "&4TabPro : &c Pseudo is not good" to player
+		set the player's tablist name to "&7%arg 2% %player%"
+
+command /tab help [<text>]:
+	aliases: tab
+	trigger:
+		send "&5&lTabPro &6» &5Help : "
+		send "&b&m------------------------------------"
+		send "&c/prefix (player) (TEXT) To change the prefix"
+		send "&cTo add grades (Config plugin)"
+		send "&c/sk reload TabPro (reload tab)"
+		send "&b&m------------------------------------"	
+
+on join:
+	if player has permission "tabf.sk":
+		set the player's tablist name to "&7Player %player%"
+on join:	
+	set tab header to "&dBienvenue &6%player%" and footer to "&dWeb: : &9www.website.com !" for player
